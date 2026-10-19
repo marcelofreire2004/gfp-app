@@ -35,6 +35,25 @@
             android:textStyle="bold"
             android:layout_marginTop="6dp"/>
 
+        <!-- Valor da fatura atual -->
+        <TextView
+            android:id="@+id/txtCarouselInvoiceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fatura atual"
+            android:textColor="@color/gfp_on_primary"
+            android:textSize="11sp"
+            android:alpha="0.85"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtCarouselInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gfp_on_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -45,17 +64,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gfp_on_primary"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:letterSpacing="0.2"/>
 
-        <TextView
-            android:id="@+id/txtCarouselDue"
-            android:layout_width="wrap_content"
+        <!-- Fechamento e vencimento lado a lado -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/gfp_on_primary"
-            android:textSize="12sp"
-            android:alpha="0.9"
-            android:layout_marginTop="4dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/txtCarouselClosing"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gfp_on_primary"
+                android:textSize="12sp"
+                android:alpha="0.9"/>
+
+            <TextView
+                android:id="@+id/txtCarouselDue"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gfp_on_primary"
+                android:textSize="12sp"
+                android:gravity="end"
+                android:alpha="0.9"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Estado: ADICIONAR cartão (quando não há cartões) -->

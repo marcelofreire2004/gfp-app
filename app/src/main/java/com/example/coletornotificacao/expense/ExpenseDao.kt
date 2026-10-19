@@ -64,6 +64,44 @@ interface ExpenseDao {
         """
     )
     fun observeTotalsByCategory(): Flow<List<CategoryTotal>>
+
+    // ---- Fatura por cartão (home + tela de fatura) ----
+
+    /**
+     * Total da fatura de um cartão dentro de um ciclo [start, end] (epoch millis).
+     * Considera apenas compras aprovadas confirmadas (consistente com os totais).
+     */
+    @Query(
+        """
+        SELECT COALESCE(SUM(amountCents),0) FROM expenses
+        WHERE cardId = :cardId AND status = 'CONFIRMED' AND type = 'PURCHASE_APPROVED'
+          AND purchaseDate BETWEEN :start AND :end
+        """
+    )
+    fun observeInvoiceTotal(cardId: Long, start: Long, end: Long): Flow<Long>
+
+    /** Total geral do cartão (fallback quando o cartão não tem ciclo definido). */
+    @Query(
+        """
+        SELECT COALESCE(SUM(amountCents),0) FROM expenses
+        WHERE cardId = :cardId AND status = 'CONFIRMED' AND type = 'PURCHASE_APPROVED'
+        """
+    )
+    fun observeCardTotal(cardId: Long): Flow<Long>
+
+    /** Lançamentos do cartão dentro do ciclo [start, end], mais recentes primeiro. */
+    @Query(
+        """
+        SELECT * FROM expenses
+        WHERE cardId = :cardId AND purchaseDate BETWEEN :start AND :end
+        ORDER BY purchaseDate DESC
+        """
+    )
+    fun observeByCardAndPeriod(cardId: Long, start: Long, end: Long): Flow<List<ExpenseEntity>>
+
+    /** Todos os lançamentos do cartão (fallback sem ciclo). */
+    @Query("SELECT * FROM expenses WHERE cardId = :cardId ORDER BY purchaseDate DESC")
+    fun observeByCard(cardId: Long): Flow<List<ExpenseEntity>>
 }
 
 /** Projeção para "gastos por cartão" (RF08). */

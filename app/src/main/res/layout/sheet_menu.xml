@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/gfp_card"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:textColor="@color/gfp_text"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="12dp"/>
+
+    <TextView
+        android:id="@+id/menuAcessoNotif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔔  Acesso a notificações"
+        android:textColor="@color/gfp_text"
+        android:textSize="16sp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/menuCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🗂️  Categorias"
+        android:textColor="@color/gfp_text"
+        android:textSize="16sp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/menuCartoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💳  Cadastro de cartões"
+        android:textColor="@color/gfp_text"
+        android:textSize="16sp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</LinearLayout>
