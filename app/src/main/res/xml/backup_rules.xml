@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Regras de backup para Android 11 e anteriores (Auto Backup / fullBackupContent).
+
+  O banco de notificações armazena textos de notificações financeiras
+  (dados sensíveis). Ele é EXCLUÍDO do backup automático para que esse
+  conteúdo não seja enviado para a nuvem. O restante do app continua
+  elegível a backup.
+-->
+<full-backup-content>
+    <exclude domain="database" path="notification_db" />
+    <exclude domain="database" path="notification_db-shm" />
+    <exclude domain="database" path="notification_db-wal" />
+</full-backup-content>

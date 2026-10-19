@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O root DEVE preencher o ViewPager2 (match_parent). A aparência de "card"
+     com respiro vem do padding/altura dos filhos internos. -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingVertical="4dp">
+
+    <!-- Estado: CARTÃO cadastrado -->
+    <LinearLayout
+        android:id="@+id/cardContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="18dp"
+        android:background="@drawable/bg_card_item">
+
+        <TextView
+            android:id="@+id/txtCarouselInstitution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gfp_on_primary"
+            android:textSize="14sp"
+            android:alpha="0.9"/>
+
+        <TextView
+            android:id="@+id/txtCarouselName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gfp_on_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/txtCarouselLast4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gfp_on_primary"
+            android:textSize="18sp"
+            android:letterSpacing="0.2"/>
+
+        <TextView
+            android:id="@+id/txtCarouselDue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gfp_on_primary"
+            android:textSize="12sp"
+            android:alpha="0.9"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Estado: ADICIONAR cartão (quando não há cartões) -->
+    <LinearLayout
+        android:id="@+id/addContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_card_add"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textColor="@color/gfp_primary"
+            android:textSize="36sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar cartão"
+            android:textColor="@color/gfp_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</FrameLayout>

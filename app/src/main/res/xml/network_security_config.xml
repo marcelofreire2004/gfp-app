@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  A comunicação com a API de produção é feita por HTTPS.
+  Tráfego em texto puro (HTTP) é bloqueado por padrão — nenhuma exceção
+  insegura é introduzida para facilitar testes.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

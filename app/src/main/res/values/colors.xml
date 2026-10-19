@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta própria do GFP (inspirada em apps de cartão, sem copiar marca). -->
+    <color name="gfp_primary">#1565C0</color>        <!-- azul primário -->
+    <color name="gfp_primary_dark">#0D47A1</color>   <!-- azul escuro (status bar) -->
+    <color name="gfp_accent">#E91E8C</color>         <!-- magenta de destaque -->
+    <color name="gfp_bg">#F4F6F8</color>             <!-- fundo cinza claro -->
+    <color name="gfp_card">#FFFFFF</color>
+    <color name="gfp_text">#1A1A1A</color>
+    <color name="gfp_text_muted">#6B7280</color>
+    <color name="gfp_on_primary">#FFFFFF</color>
+
+    <!-- Tons para banners de propaganda (placeholders). -->
+    <color name="banner1">#1565C0</color>
+    <color name="banner2">#E91E8C</color>
+    <color name="banner3">#00897B</color>
+</resources>

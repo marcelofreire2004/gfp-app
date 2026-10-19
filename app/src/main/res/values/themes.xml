@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema base: a home (MainActivity) usa NoActionBar, pois tem cabeçalho
+         próprio estilo RioCard. As telas internas mantêm a ActionBar colorida. -->
+    <style name="Theme.ColetorNotificacao"
+        parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/gfp_primary</item>
+        <item name="colorPrimaryDark">@color/gfp_primary_dark</item>
+        <item name="colorAccent">@color/gfp_accent</item>
+        <item name="android:windowBackground">@color/gfp_bg</item>
+    </style>
+
+    <!-- Tema sem ActionBar para a tela inicial. -->
+    <style name="Theme.ColetorNotificacao.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

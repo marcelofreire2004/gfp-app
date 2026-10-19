@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="?attr/actionBarSize"
+    android:clipToPadding="false">
+
+    <TextView
+        android:id="@+id/txtPendingCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pendentes: 0"
+        android:textSize="14sp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnSyncNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sincronizar agora"
+        android:layout_marginHorizontal="16dp"/>
+
+    <Button
+        android:id="@+id/btnTestNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gerar Notificação de Teste"
+        android:layout_marginHorizontal="16dp"/>
+
+    <Button
+        android:id="@+id/btnClearNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LIMPAR SINCRONIZADAS"
+        android:layout_marginHorizontal="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
