@@ -85,9 +85,28 @@ contrato existente não quebra.
 Resultado: reenvios por falha de rede ou ausência de confirmação não geram mais
 duplicatas no servidor, e o cliente nunca perde nem duplica o registro local.
 
+## Autenticação de dispositivo (lado servidor já pronto)
+
+O backend passou a **suportar** autenticação por **token de dispositivo** no
+`POST /notificacoes`, resolvendo o dono (`id_usuario`) a partir do dispositivo
+autenticado em vez de um id no payload:
+
+- Com `Authorization: Bearer <token-de-dispositivo>` (ou header `X-Device-Token`)
+  válido → a notificação é gravada para o usuário dono daquele dispositivo.
+- Com token **inválido/revogado** → `401` (não cai no fallback).
+- **Sem** token → **fallback público** (compatibilidade com o coletor atual, que
+  ainda não envia credencial). É controlado pela env `COLLECTOR_PUBLIC_FALLBACK`
+  no backend (ligado por padrão; `=false` passa a exigir token em todas as
+  requisições). O cadastro/revogação de dispositivos é feito via `/dispositivos`.
+
+> **Estado do cliente Android:** o coletor **ainda não envia** token (usa o
+> fallback público). Enviar o token de dispositivo é o próximo passo para tornar
+> a ingestão multiusuário segura — ver [Melhorias Sugeridas](melhorias.md).
+
 ## Pontos de atenção
 
 - A `BASE_URL` está fixada no código (hardcoded). Para múltiplos ambientes, considere `buildConfigField` ou variantes de build.
-- Não há autenticação (token/cabeçalho) no envio.
+- O cliente ainda **não envia** credencial. O servidor já aceita token de
+  dispositivo (ver seção acima); falta o Kotlin passar a enviá-lo.
 
 Veja mais em [Melhorias Sugeridas](melhorias.md).

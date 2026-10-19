@@ -20,7 +20,7 @@ Situação atual dos pontos levantados nas revisões. Vários já foram resolvid
 ## Em aberto
 
 1. **`BASE_URL` hardcoded.** Usar `buildConfigField`/flavors para separar dev/produção.
-2. **Sem autenticação.** O POST não envia token/cabeçalho; qualquer cliente pode postar no endpoint. O backend já mantém o `POST /notificacoes` público nesta fase, justamente porque o coletor ainda não autentica. A evolução (token de dispositivo) está planejada dos dois lados e deve ser coordenada em release conjunto.
+2. **Sem autenticação (lado cliente).** O POST ainda não envia token/cabeçalho. O backend já **suporta** token de dispositivo no `POST /notificacoes` (via `Authorization: Bearer`/`X-Device-Token`, com cadastro em `/dispositivos`), mas mantém um **fallback público** nesta fase (env `COLLECTOR_PUBLIC_FALLBACK`, ligado por padrão) porque o coletor ainda não autentica. Falta o cliente passar a enviar o token; quando o fallback for desligado, a ingestão vira multiusuário segura. Coordenar em release conjunto.
 4. **Filtro por substring.** `isBanco` usa `contains`; substrings curtas (`"xp"`, `"bb."`) podem casar com pacotes não relacionados. Considerar lista de pacotes exatos.
 5. **Dependências Compose não usadas.** O `libs.versions.toml` declara Compose/`kotlin-compose` sem uso. Remover reduz ruído e tempo de build.
 6. **`isMinifyEnabled = false` no release.** Habilitar R8/ProGuard reduz o APK e ofusca o código.
